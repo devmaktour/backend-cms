@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "galleries",
+  "info": {
+    "singularName": "gallery",
+    "pluralName": "galleries",
+    "displayName": "Gallery"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "media": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.file-media",
+      "required": true
+    }
+  }
+}
