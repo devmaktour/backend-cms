@@ -406,6 +406,9 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
         i18n: {
           localized: true;
         };
+      }> &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
       }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -439,6 +442,9 @@ export interface ApiFaqCategoryFaqCategory extends Struct.CollectionTypeSchema {
         i18n: {
           localized: true;
         };
+      }> &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
@@ -451,6 +457,9 @@ export interface ApiFaqCategoryFaqCategory extends Struct.CollectionTypeSchema {
         i18n: {
           localized: true;
         };
+      }> &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
       }>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -462,6 +471,7 @@ export interface ApiFaqCategoryFaqCategory extends Struct.CollectionTypeSchema {
 export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
   collectionName: 'faqs';
   info: {
+    description: '';
     displayName: 'FAQ';
     pluralName: 'faqs';
     singularName: 'faq';
@@ -475,12 +485,15 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    answer: Schema.Attribute.Blocks &
+    answer: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
+      }> &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
       }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -498,6 +511,9 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
         i18n: {
           localized: true;
         };
+      }> &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
       }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -537,6 +553,7 @@ export interface ApiGalleryGallery extends Struct.CollectionTypeSchema {
 export interface ApiTncTnc extends Struct.SingleTypeSchema {
   collectionName: 'tncs';
   info: {
+    description: '';
     displayName: 'TNC';
     pluralName: 'tncs';
     singularName: 'tnc';
@@ -569,6 +586,9 @@ export interface ApiTncTnc extends Struct.SingleTypeSchema {
         i18n: {
           localized: true;
         };
+      }> &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
       }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

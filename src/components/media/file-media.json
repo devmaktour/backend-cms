@@ -2,30 +2,33 @@
   "collectionName": "components_media_file_medias",
   "info": {
     "displayName": "FileMedia",
-    "icon": "picture"
+    "icon": "picture",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "file": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "maxLength": 255
     },
     "description": {
       "type": "text"
     },
     "alternative_text": {
       "type": "string",
-      "required": true
+      "required": true,
+      "maxLength": 255
     }
   }
 }

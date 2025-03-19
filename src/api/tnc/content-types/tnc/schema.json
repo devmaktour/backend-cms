@@ -4,7 +4,8 @@
   "info": {
     "singularName": "tnc",
     "pluralName": "tncs",
-    "displayName": "TNC"
+    "displayName": "TNC",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,7 +23,8 @@
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "maxLength": 255
     },
     "content": {
       "type": "blocks",
