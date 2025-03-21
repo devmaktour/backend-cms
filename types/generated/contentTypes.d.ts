@@ -393,7 +393,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    cover_image: Schema.Attribute.Component<'media.file-media', false>;
+    coverImage: Schema.Attribute.Component<'media.file-media', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -498,7 +498,7 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    faq_category: Schema.Attribute.Relation<
+    faqCategory: Schema.Attribute.Relation<
       'oneToOne',
       'api::faq-category.faq-category'
     >;

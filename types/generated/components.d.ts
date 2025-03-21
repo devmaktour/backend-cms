@@ -8,7 +8,7 @@ export interface MediaFileMedia extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
-    alternative_text: Schema.Attribute.String &
+    alternativeText: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 255;

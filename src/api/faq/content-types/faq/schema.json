@@ -26,7 +26,7 @@
       },
       "maxLength": 255
     },
-    "faq_category": {
+    "faqCategory": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::faq-category.faq-category"

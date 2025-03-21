@@ -35,7 +35,7 @@
         }
       }
     },
-    "cover_image": {
+    "coverImage": {
       "type": "component",
       "repeatable": false,
       "component": "media.file-media",
