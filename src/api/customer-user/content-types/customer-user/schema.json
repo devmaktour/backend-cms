@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customer_users",
+  "info": {
+    "singularName": "customer-user",
+    "pluralName": "customer-users",
+    "displayName": "CustomerUser"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "biginteger"
+    },
+    "is_subscribe_email": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}
