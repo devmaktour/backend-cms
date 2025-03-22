@@ -1,7 +1,5 @@
 - Integrate with AWS S3
 - Deploy to dev environment for FE integration
-- Cms auth user management V
-- Customer User data store V
 - load test
 - auth api?
 - email plugin
