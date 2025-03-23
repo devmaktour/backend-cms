@@ -1,4 +1,3 @@
-- Integrate with AWS S3
 - Deploy to dev environment for FE integration
 - load test
 - auth api?
