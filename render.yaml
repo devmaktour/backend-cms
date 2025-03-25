@@ -1,0 +1,73 @@
+services:
+  - type: web
+    name: backend_dev
+    env: node
+    buildCommand: yarn; yarn build
+    startCommand: yarn start
+    region: singapore
+    plan: free
+    envVars:
+      - key: DATABASE_HOST
+        fromDatabase:
+          name: db_dev
+          property: host
+      - key: DATABASE_PORT
+        fromDatabase:
+          name: db_dev
+          property: port
+      - key: DATABASE_USERNAME
+        fromDatabase:
+          name: db_dev
+          property: user
+      - key: DATABASE_PASSWORD
+        fromDatabase:
+          name: db_dev
+          property: password
+      - key: DATABASE_NAME
+        fromDatabase:
+          name: db_dev
+          property: database
+      - key: SECRET_KEY
+        sync: false
+      - key: NODE_ENV
+        value: stag
+      - key: NODE_VERSION
+        value: 18.17.1
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 1337
+      - key: APP_KEYS
+        value: RtfiAlNwZRe2daviABrbOA==,qiEW51EB+we8DkoI6XmAfA==,5yUUsavJQYEQnZ+5pCbXfA==,vAZglh8gXSg/FnTSUXPF/g==
+      - key: API_TOKEN_SALT
+        value: kqZfVGbdqRIq5M5Bbe2xSg==
+      - key: ADMIN_JWT_SECRET
+        value: skE2uqJSgj5cOSCE/ZJkFg==
+      - key: TRANSFER_TOKEN_SALT
+        value: r5zURQgGSDv4hKh+sDzi+g==
+      - key: DATABASE_CLIENT
+        value: postgres
+      - key: DATABASE_SSL
+        value: false
+      - key: JWT_SECRET
+        value: puO5xr+iaKvyd9Gm1omCcg==
+      - key: AWS_ACCESS_KEY_ID
+        value: AKIAQ4J5YGC3MBMGJ6OE
+      - key: AWS_ACCESS_SECRET
+        value: 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
+      - key: AWS_REGION
+        value: ap-southeast-3
+      - key: AWS_BUCKET
+        value: backend-cms-bucket
+
+databases:
+  - name: db_dev
+    databaseName: db_dev 
+    user: db_dev
+    region: singapore
+    plan: free
+    postgresMajorVersion: 15
+    ipAllowList:
+      - source: 0.0.0.0/0
+        description: everywhere
+    
