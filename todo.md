@@ -1,6 +1,4 @@
-- Deploy to dev environment for FE integration
 - load test
-- auth api?
 - email plugin
 - submit location
 - api for 
