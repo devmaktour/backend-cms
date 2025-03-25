@@ -29,6 +29,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "eslint": "9.3.0",
     "typescript": "^5"
   },
   "engines": {
@@ -37,5 +38,16 @@
   },
   "strapi": {
     "uuid": "55749420-9f31-4b4f-b34a-c7752021b905"
+  },
+  "overrides": {
+    "@typescript-eslint/eslint-plugin": {
+      "eslint": "$eslint"
+    },
+    "@typescript-eslint/parser": {
+      "eslint": "$eslint"
+    },
+    "eslint-plugin-react-hooks": {
+      "eslint": "$eslint"
+    }
   }
 }
