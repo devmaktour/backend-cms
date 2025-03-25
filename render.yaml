@@ -27,10 +27,6 @@ services:
         fromDatabase:
           name: db_dev
           property: database
-      - key: SECRET_KEY
-        sync: false
-      - key: NODE_ENV
-        value: stag
       - key: NODE_VERSION
         value: 18.17.1
       - key: HOST
