@@ -34,23 +34,23 @@ services:
       - key: PORT
         value: 1337
       - key: APP_KEYS
-        value: RtfiAlNwZRe2daviABrbOA==,qiEW51EB+we8DkoI6XmAfA==,5yUUsavJQYEQnZ+5pCbXfA==,vAZglh8gXSg/FnTSUXPF/g==
+        sync: false
       - key: API_TOKEN_SALT
-        value: kqZfVGbdqRIq5M5Bbe2xSg==
+        sync: false
       - key: ADMIN_JWT_SECRET
-        value: skE2uqJSgj5cOSCE/ZJkFg==
+        sync: false
       - key: TRANSFER_TOKEN_SALT
-        value: r5zURQgGSDv4hKh+sDzi+g==
+        sync: false
       - key: DATABASE_CLIENT
         value: postgres
       - key: DATABASE_SSL
         value: false
       - key: JWT_SECRET
-        value: puO5xr+iaKvyd9Gm1omCcg==
+        sync: false
       - key: AWS_ACCESS_KEY_ID
-        value: AKIAQ4J5YGC3MBMGJ6OE
+        sync: false
       - key: AWS_ACCESS_SECRET
-        value: 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
+        sync: false
       - key: AWS_REGION
         value: ap-southeast-3
       - key: AWS_BUCKET
