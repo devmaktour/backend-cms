@@ -4,7 +4,8 @@
   "info": {
     "singularName": "customer-user",
     "pluralName": "customer-users",
-    "displayName": "CustomerUser"
+    "displayName": "CustomerUser",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -17,13 +18,14 @@
     "name": {
       "type": "string"
     },
-    "phone_number": {
-      "type": "biginteger"
-    },
     "is_subscribe_email": {
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "phone_number": {
+      "type": "string",
+      "regex": "^[0-9]+$"
     }
   }
 }

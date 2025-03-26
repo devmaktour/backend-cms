@@ -14,9 +14,13 @@ export default factories.createCoreController('api::customer-user.customer-user'
             const existingUser = await strapi.db.query('api::customer-user.customer-user').findOne({
                 where: { email: email },
             });
-
             if (existingUser) {
                 return ctx.badRequest('Email already exists');
+            }
+
+            // validate phone number only numeric
+            if (phone_number != undefined && !/^\d+$/.test(phone_number)) {
+                return ctx.badRequest('Phone number must be numeric');
             }
 
             const customerUser = await strapi.db.query('api::customer-user.customer-user').create({

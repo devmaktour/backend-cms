@@ -420,6 +420,7 @@ export interface ApiCustomerUserCustomerUser
   extends Struct.CollectionTypeSchema {
   collectionName: 'customer_users';
   info: {
+    description: '';
     displayName: 'CustomerUser';
     pluralName: 'customer-users';
     singularName: 'customer-user';
@@ -442,7 +443,7 @@ export interface ApiCustomerUserCustomerUser
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
-    phone_number: Schema.Attribute.BigInteger;
+    phone_number: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
