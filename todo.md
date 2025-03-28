@@ -1,6 +1,3 @@
 - load test
 - email plugin
 - submit location
-- check auth api for 
-    - subscribe email
-    - create user / contact us.

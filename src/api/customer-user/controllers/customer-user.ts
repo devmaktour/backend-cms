@@ -46,6 +46,10 @@ export default factories.createCoreController('api::customer-user.customer-user'
             const existingUser = await strapi.db.query('api::customer-user.customer-user').findOne({
                 where: { email: email },
             });
+            if (existingUser && existingUser.is_subscribe_email) {
+                strapi.log.info('User '+ email+ ' is already subscribed');
+                return ctx.body = existingUser;
+            }
 
             let customerUser;
 
