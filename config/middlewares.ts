@@ -34,8 +34,4 @@ export default [
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
-  {
-    name: 'api::customer-user.cu-customer-user-api-token-validation',
-    config: {},
-  },
 ];
