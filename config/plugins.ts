@@ -17,5 +17,19 @@ export default ({ env }) => ({
                 },
             },
         },
-    }
+    },
+    email: {
+        config: {
+            provider: 'amazon-ses',
+            providerOptions: {
+                key: env('AWS_ACCESS_KEY_ID'),
+                secret: env('AWS_ACCESS_SECRET'),
+                amazon: `https://email.${env('AWS_REGION')}.amazonaws.com`,
+            },
+            settings: {
+                defaultFrom: env('EMAIL_DEFAULT_FROM'),
+                defaultReplyTo: env('EMAIL_DEFAULT_REPLY_TO')
+            },
+        },
+    },
 });

@@ -1,3 +1,5 @@
 - load test
 - email plugin
+    - open amason ses again
+    - verify domain, need dns migrate first
 - submit location
