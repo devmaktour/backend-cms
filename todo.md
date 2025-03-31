@@ -2,4 +2,7 @@
 - email plugin
     - open amason ses again
     - verify domain, need dns migrate first
-- submit location
+- api submit location bareng user data
+- cms for package
+- cms for umroh info
+- cms for hajj info
