@@ -1,3 +1,4 @@
+TODO:
 - load test
 - email plugin
     - open amason ses again
@@ -6,3 +7,12 @@
 - cms for package
 - cms for umroh info
 - cms for hajj info
+- caching
+
+DONE:
+- check auth api for 
+    - subscribe email
+    - create user / contact us.
+- api for 
+    - subscribe email
+    - create user / contact us.
