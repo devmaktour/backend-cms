@@ -1,18 +1,55 @@
-/**
- * `cache` middleware
- */
-
 import type { Core } from '@strapi/strapi';
 import { Context, Next } from 'koa';
 import redisClient from '../utils/redis';
+import pluralize from 'pluralize';
 
 const CACHE_TTL = 60 * 60; // 1 hour in seconds
+const CACHE_PREFIX = 'cache:api';
+const CACHE_ELIGIBLE_MODELS = [
+  'blog',
+  'customer-user',
+  'faq',
+  'faq-category',
+  'gallery',
+  'hajj-info',
+  'tnc',
+  'umroh-info'
+]
 
-const generateCacheKey = (ctx: Context): string => {
-  return ctx.method + ':' + ctx.url; // Method + URL as key
-};
+export const generateCacheKeyFromModel = (modelName: string): string => {
+  if (!CACHE_ELIGIBLE_MODELS.includes(modelName)) {
+    return null;
+  }
 
-const clearCacheForKeyPrefix = async (keyPrefix: string) => {
+  return `${CACHE_PREFIX}:${modelName}`;
+}
+
+const generateCacheKeyFromUrl = (url: string): string => {
+  const parts = url.split('/').filter(part => part.length > 0);
+  if (!parts || parts.length < 2) {
+    strapi.log.warn(`Invalid URL for cache key generation: ${url}`);
+    return null;
+  }
+
+  const singularModelName = pluralize.singular(parts[1]);
+  if (!CACHE_ELIGIBLE_MODELS.includes(singularModelName)) {
+    return null;
+  }
+
+  if (parts.length == 2 && parts[1]) {
+    return `${CACHE_PREFIX}:${singularModelName}`;
+  }
+
+  if (parts.length > 2 && parts[1]) {
+    const id = parts[2];
+    return `${CACHE_PREFIX}:${singularModelName}:${id}`;
+  }
+
+  strapi.log.warn(`Invalid URL for cache key generation: ${url}`);
+  return null;
+}
+
+export const clearCacheForKeyPrefix = async (keyPrefix: string) => {
   try {
     const keys = await redisClient.keys(`${keyPrefix}*`);
     if (keys.length > 0) {
@@ -24,12 +61,12 @@ const clearCacheForKeyPrefix = async (keyPrefix: string) => {
   }
 };
 
-
 export default (config, { strapi }: { strapi: Core.Strapi }) => {
   return async (ctx: Context, next: Next) => {
-    strapi.log.info('In cache middleware.');
-
-    const key = generateCacheKey(ctx);
+    const key = generateCacheKeyFromUrl(ctx.url);
+    if (!key) {
+      return await next(); // Proceed to controller
+    }
 
     if (ctx.method === 'GET') {
       try {
@@ -53,12 +90,6 @@ export default (config, { strapi }: { strapi: Core.Strapi }) => {
       } catch (error) {
         strapi.log.error('Redis SET error:', error);
       }
-    }
-
-    if (ctx.method === 'POST' || ctx.method === 'PUT' || ctx.method === 'DELETE') {
-      // Invalidate cache for the base path (e.g., /api/articles)
-      const keyPrefix = ctx.path;
-      await clearCacheForKeyPrefix(keyPrefix);
     }
   };
 };
