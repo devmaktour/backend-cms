@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "hajj_infos",
+  "info": {
+    "singularName": "hajj-info",
+    "pluralName": "hajj-infos",
+    "displayName": "Hajj Info"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "info-block.info-block",
+      "required": true
+    }
+  }
+}

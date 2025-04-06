@@ -18,12 +18,12 @@
     "name": {
       "type": "string"
     },
-    "is_subscribe_email": {
+    "isSubscribeEmail": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "phone_number": {
+    "phoneNumber": {
       "type": "string",
       "regex": "^[0-9]+$"
     }

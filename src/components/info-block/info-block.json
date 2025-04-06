@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_info_block_info_blocks",
+  "info": {
+    "displayName": "InfoBlock"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "text",
+      "required": true
+    },
+    "media": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.file-media"
+    },
+    "imagePosition": {
+      "type": "enumeration",
+      "enum": [
+        "top",
+        "right",
+        "left"
+      ],
+      "required": true,
+      "default": "top"
+    }
+  }
+}
