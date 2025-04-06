@@ -6,6 +6,7 @@ TODO:
 - api submit location bareng user data
 - cms for package
 - caching
+- add proper logging
 
 DONE:
 - check auth api for 
