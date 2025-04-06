@@ -4,4 +4,12 @@
 
 import { factories } from '@strapi/strapi';
 
-export default factories.createCoreRouter('api::umroh-info.umroh-info');
+export default factories.createCoreRouter('api::umroh-info.umroh-info',
+    {
+        config: {
+            find: {
+                middlewares: ['api::umroh-info.umroh-info-populate']
+            }
+        }
+    }
+);
