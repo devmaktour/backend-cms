@@ -5,7 +5,6 @@ TODO:
     - verify domain, need dns migrate first
 - api submit location bareng user data
 - cms for package
-- caching
 - add proper logging
 
 DONE:
@@ -17,3 +16,4 @@ DONE:
     - create user / contact us.
 - cms for umroh info
 - cms for hajj info
+- caching (improve performance backend server)
