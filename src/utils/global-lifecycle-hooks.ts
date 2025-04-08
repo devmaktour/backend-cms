@@ -49,6 +49,18 @@ const attachLifecycleHooks = (contentType: string) => {
                     await clearCacheForKeyPrefix(cachePrefix);
                 }
             },
+            afterCreate: async (event) => {
+                if (event.model.uid === contentType) {
+                    strapi.log.info(`Cache with prefix ${cachePrefix} evicted for ${contentType} after create`);
+                    await clearCacheForKeyPrefix(cachePrefix);
+                }
+            },
+            afterCreateMany: async (event) => {
+                if (event.model.uid === contentType) {
+                    strapi.log.info(`Cache with prefix ${cachePrefix} evicted for ${contentType} after create many`);
+                    await clearCacheForKeyPrefix(cachePrefix);
+                }
+            }
         });
     }
 };
