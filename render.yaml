@@ -55,6 +55,22 @@ services:
         value: ap-southeast-3
       - key: AWS_BUCKET
         value: backend-cms-bucket
+      - key: REDIS_HOST
+        fromService:
+          type: redis
+          name: redis_dev
+          property: host
+      - key: REDIS_PORT
+        fromService:
+          type: redis
+          name: redis_dev
+          property: port
+    
+  - type: redis
+    name: redis_dev
+    ipAllowList: [] # only allow internal connections
+    region: singapore
+    plan: free
 
 databases:
   - name: db_dev
