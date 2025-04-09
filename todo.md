@@ -5,7 +5,6 @@ TODO:
     - verify domain, need dns migrate first
 - api submit location bareng user data (nunggu balesan maktour aja)
 - add proper logging
-- idr currency
 
 DONE:
 - check auth api for 
@@ -18,3 +17,4 @@ DONE:
 - cms for hajj info
 - cms for package
 - caching (improve performance backend server)
+- idr currency for package
