@@ -1,0 +1,97 @@
+{
+  "kind": "collectionType",
+  "collectionName": "packages",
+  "info": {
+    "singularName": "package",
+    "pluralName": "packages",
+    "displayName": "Package"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Umroh",
+        "Hajj",
+        "Special Program"
+      ],
+      "required": true
+    },
+    "classification": {
+      "type": "enumeration",
+      "enum": [
+        "Reguler",
+        "Exclusive"
+      ],
+      "required": true
+    },
+    "priceInUsd": {
+      "type": "decimal",
+      "required": true
+    },
+    "durationInDay": {
+      "type": "integer",
+      "required": true
+    },
+    "requirementDetail": {
+      "type": "component",
+      "repeatable": false,
+      "component": "info-block.rich-text-info-block",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "accommodationDetail": {
+      "type": "component",
+      "repeatable": false,
+      "component": "info-block.rich-text-info-block",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "cancellationPolicy": {
+      "type": "component",
+      "repeatable": false,
+      "component": "info-block.rich-text-info-block",
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "additionalInfos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "info-block.rich-text-info-block",
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}
