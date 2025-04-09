@@ -4,7 +4,6 @@ TODO:
     - open amason ses again
     - verify domain, need dns migrate first
 - api submit location bareng user data (nunggu balesan maktour aja)
-- add proper logging
 
 DONE:
 - check auth api for 
@@ -18,3 +17,4 @@ DONE:
 - cms for package
 - caching (improve performance backend server)
 - idr currency for package
+- add proper logging
