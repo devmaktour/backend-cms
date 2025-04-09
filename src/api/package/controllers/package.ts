@@ -13,7 +13,7 @@ export default factories.createCoreController('api::package.package', ({ strapi 
         await Promise.all(
             data.map(async (item) => {
                 if (item && item.priceInUsd) {
-                    const priceInIdr = await convertUsdToIdr(item.priceInUsd);
+                    const priceInIdr = await convertUsdToIdr(ctx, item.priceInUsd);
                     if (priceInIdr) {
                         item.priceInIdr = priceInIdr;
                     }
@@ -28,7 +28,7 @@ export default factories.createCoreController('api::package.package', ({ strapi 
         const data = await super.findOne(ctx);
 
         if (data && data.data && data.data.priceInUsd) {
-            const priceInIdr = await convertUsdToIdr(data.data.priceInUsd);
+            const priceInIdr = await convertUsdToIdr(ctx, data.data.priceInUsd);
             if (priceInIdr) {
                 data.data.priceInIdr = priceInIdr;
             }
