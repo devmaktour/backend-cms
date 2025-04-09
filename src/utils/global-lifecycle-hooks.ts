@@ -1,5 +1,4 @@
 import { clearCacheForKeyPrefix, generateCacheKeyFromModel } from '../middlewares/cache';
-import redisClient from './redis';
 
 const contentTypesToInvalidate = [
     'api::blog.blog',
@@ -7,7 +6,9 @@ const contentTypesToInvalidate = [
     'api::faq.faq',
     'api::faq-category.faq-category',
     'api::gallery.gallery',
+    'api::package.package',
     'api::hajj-info.hajj-info',
+    'api::privacy-policy.privacy-policy',
     'api::tnc.tnc',
     'api::umroh-info.umroh-info',
 ];

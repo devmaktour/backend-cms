@@ -10,7 +10,8 @@ export default factories.createCoreController('api::tnc.tnc', ({ strapi }) => ({
             where: {
                 published_at: { $notNull: true },
                 locale: ['en', 'id'],
-            }
+            },
+            populate: ["tnc"],
         })
 
         if (!tnc || tnc.length === 0) {

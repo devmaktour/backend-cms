@@ -1,11 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "tncs",
+  "collectionName": "privacy_policies",
   "info": {
-    "singularName": "tnc",
-    "pluralName": "tncs",
-    "displayName": "TNC",
-    "description": ""
+    "singularName": "privacy-policy",
+    "pluralName": "privacy-policies",
+    "displayName": "Privacy Policy"
   },
   "options": {
     "draftAndPublish": true
@@ -16,7 +15,7 @@
     }
   },
   "attributes": {
-    "tnc": {
+    "policy": {
       "type": "component",
       "repeatable": true,
       "component": "info-block.simple-rich-text-info-block",

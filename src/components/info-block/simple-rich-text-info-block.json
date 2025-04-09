@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_info_block_simple_rich_text_info_blocks",
+  "info": {
+    "displayName": "SimpleRichTextInfoBlock"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

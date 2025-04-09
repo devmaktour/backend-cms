@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_info_block_rich_text_info_blocks",
+  "info": {
+    "displayName": "RichTextInfoBlock"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "blocks",
+      "required": true
+    },
+    "media": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.file-media"
+    },
+    "imagePosition": {
+      "type": "enumeration",
+      "enum": [
+        "top",
+        "right",
+        "left"
+      ],
+      "default": "top",
+      "required": true
+    }
+  }
+}

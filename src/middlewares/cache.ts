@@ -11,7 +11,9 @@ const CACHE_ELIGIBLE_MODELS = [
   'faq',
   'faq-category',
   'gallery',
+  'package',
   'hajj-info',
+  'privacy-policy',
   'tnc',
   'umroh-info'
 ]
