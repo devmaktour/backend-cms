@@ -4,6 +4,7 @@
 
 import { factories } from '@strapi/strapi'
 import { Context } from 'koa';
+import { LOG } from '../../../utils/logger';
 
 export default factories.createCoreController('api::customer-user.customer-user', ({ strapi }) => ({
     async createUser(ctx: Context) {
@@ -47,7 +48,7 @@ export default factories.createCoreController('api::customer-user.customer-user'
                 where: { email: email },
             });
             if (existingUser && existingUser.is_subscribe_email) {
-                strapi.log.info('User '+ email+ ' is already subscribed');
+                LOG.info(ctx, 'User '+ email+ ' is already subscribed');
                 return ctx.body = existingUser;
             }
 

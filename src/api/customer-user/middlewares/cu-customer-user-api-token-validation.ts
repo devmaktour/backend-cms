@@ -4,10 +4,11 @@
 
 import type { Core } from '@strapi/strapi';
 import { Context, Next } from 'koa';
+import { LOG } from '../../../utils/logger';
 
 export default (config, { strapi }: { strapi: Core.Strapi }) => {
   return async (ctx: Context, next: Next) => {
-    strapi.log.info('In cu-customer-user-api-token-validation middleware.');
+    LOG.info(ctx, 'In cu-customer-user-api-token-validation middleware.');
 
     const apiToken = ctx.request.headers['x-api-token'];
     const staticApiToken = process.env.CU_CUSTOMER_USER_API_TOKEN;

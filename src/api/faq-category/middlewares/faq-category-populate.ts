@@ -3,11 +3,11 @@
  */
 
 import type { Core } from '@strapi/strapi';
+import { LOG } from '../../../utils/logger';
 
 export default (config, { strapi }: { strapi: Core.Strapi }) => {
-  // Add your own logic here.
   return async (ctx, next) => {
-    strapi.log.info('In faq-category-populate middleware.');
+    LOG.info(ctx, 'In faq-category-populate middleware.');
     ctx.query = {
       status: 'published',
       locale: '*',
