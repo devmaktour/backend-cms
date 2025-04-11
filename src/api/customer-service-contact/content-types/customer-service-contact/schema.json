@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customer_service_contacts",
+  "info": {
+    "singularName": "customer-service-contact",
+    "pluralName": "customer-service-contacts",
+    "displayName": "CustomerServiceContact",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string",
+      "required": true,
+      "regex": "^62\\d+$",
+      "default": "6282112345678"
+    },
+    "photo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.photo-media",
+      "required": true
+    }
+  }
+}

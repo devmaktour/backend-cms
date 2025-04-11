@@ -4,6 +4,7 @@ TODO:
     - open amason ses again
     - verify domain, need dns migrate first
 - api submit location bareng user data (nunggu balesan maktour aja)
+- cs contact cms
 
 DONE:
 - check auth api for 

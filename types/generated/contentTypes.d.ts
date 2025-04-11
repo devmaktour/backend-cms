@@ -416,6 +416,42 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCustomerServiceContactCustomerServiceContact
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'customer_service_contacts';
+  info: {
+    description: '';
+    displayName: 'CustomerServiceContact';
+    pluralName: 'customer-service-contacts';
+    singularName: 'customer-service-contact';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::customer-service-contact.customer-service-contact'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    phoneNumber: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'6282112345678'>;
+    photo: Schema.Attribute.Component<'media.photo-media', false> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCustomerUserCustomerUser
   extends Struct.CollectionTypeSchema {
   collectionName: 'customer_users';
@@ -1327,6 +1363,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::blog.blog': ApiBlogBlog;
+      'api::customer-service-contact.customer-service-contact': ApiCustomerServiceContactCustomerServiceContact;
       'api::customer-user.customer-user': ApiCustomerUserCustomerUser;
       'api::faq-category.faq-category': ApiFaqCategoryFaqCategory;
       'api::faq.faq': ApiFaqFaq;

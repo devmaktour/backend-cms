@@ -66,6 +66,17 @@ export interface MediaFileMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface MediaPhotoMedia extends Struct.ComponentSchema {
+  collectionName: 'components_media_photo_medias';
+  info: {
+    displayName: 'PhotoMedia';
+  };
+  attributes: {
+    alternativeText: Schema.Attribute.String & Schema.Attribute.Required;
+    photo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -73,6 +84,7 @@ declare module '@strapi/strapi' {
       'info-block.rich-text-info-block': InfoBlockRichTextInfoBlock;
       'info-block.simple-rich-text-info-block': InfoBlockSimpleRichTextInfoBlock;
       'media.file-media': MediaFileMedia;
+      'media.photo-media': MediaPhotoMedia;
     }
   }
 }
