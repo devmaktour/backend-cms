@@ -29,7 +29,8 @@
     "faqCategory": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::faq-category.faq-category"
+      "target": "api::faq-category.faq-category",
+      "required": true
     },
     "answer": {
       "type": "string",
@@ -40,6 +41,11 @@
         }
       },
       "maxLength": 255
+    },
+    "displayOnHomePage": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "sliding_hero_section_images",
+  "info": {
+    "singularName": "sliding-hero-section-image",
+    "pluralName": "sliding-hero-section-images",
+    "displayName": "Sliding Hero Section Image"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.photo-media",
+      "required": true,
+      "max": 3,
+      "min": 1
+    }
+  }
+}

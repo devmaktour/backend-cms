@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_cs_whatsapp_templates",
+  "info": {
+    "singularName": "contact-cs-whatsapp-template",
+    "pluralName": "contact-cs-whatsapp-templates",
+    "displayName": "Contact CS Whatsapp Template"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "messageTemplate": {
+      "type": "text",
+      "required": true,
+      "maxLength": 255,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

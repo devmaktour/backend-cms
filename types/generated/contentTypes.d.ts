@@ -416,6 +416,48 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiContactCsWhatsappTemplateContactCsWhatsappTemplate
+  extends Struct.SingleTypeSchema {
+  collectionName: 'contact_cs_whatsapp_templates';
+  info: {
+    displayName: 'Contact CS Whatsapp Template';
+    pluralName: 'contact-cs-whatsapp-templates';
+    singularName: 'contact-cs-whatsapp-template';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-cs-whatsapp-template.contact-cs-whatsapp-template'
+    >;
+    messageTemplate: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCustomerServiceContactCustomerServiceContact
   extends Struct.CollectionTypeSchema {
   collectionName: 'customer_service_contacts';
@@ -569,10 +611,14 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    displayOnHomePage: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     faqCategory: Schema.Attribute.Relation<
       'oneToOne',
       'api::faq-category.faq-category'
-    >;
+    > &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
     publishedAt: Schema.Attribute.DateTime;
@@ -773,6 +819,43 @@ export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
         },
         number
       >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSlidingHeroSectionImageSlidingHeroSectionImage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'sliding_hero_section_images';
+  info: {
+    displayName: 'Sliding Hero Section Image';
+    pluralName: 'sliding-hero-section-images';
+    singularName: 'sliding-hero-section-image';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    images: Schema.Attribute.Component<'media.photo-media', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+          min: 1;
+        },
+        number
+      >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sliding-hero-section-image.sliding-hero-section-image'
+    > &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1363,6 +1446,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::blog.blog': ApiBlogBlog;
+      'api::contact-cs-whatsapp-template.contact-cs-whatsapp-template': ApiContactCsWhatsappTemplateContactCsWhatsappTemplate;
       'api::customer-service-contact.customer-service-contact': ApiCustomerServiceContactCustomerServiceContact;
       'api::customer-user.customer-user': ApiCustomerUserCustomerUser;
       'api::faq-category.faq-category': ApiFaqCategoryFaqCategory;
@@ -1371,6 +1455,7 @@ declare module '@strapi/strapi' {
       'api::hajj-info.hajj-info': ApiHajjInfoHajjInfo;
       'api::package.package': ApiPackagePackage;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
+      'api::sliding-hero-section-image.sliding-hero-section-image': ApiSlidingHeroSectionImageSlidingHeroSectionImage;
       'api::tnc.tnc': ApiTncTnc;
       'api::umroh-info.umroh-info': ApiUmrohInfoUmrohInfo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
