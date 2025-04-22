@@ -9,7 +9,7 @@ import { LOG } from '../../../utils/logger';
 export default factories.createCoreController('api::customer-user.customer-user', ({ strapi }) => ({
     async createUser(ctx: Context) {
         try {
-            const { name, email, phone_number } = ctx.request.body;
+            const { name, email, phoneNumber, isSubscribeEmail } = ctx.request.body;
 
             // Check if email already exists
             const existingUser = await strapi.db.query('api::customer-user.customer-user').findOne({
@@ -20,7 +20,7 @@ export default factories.createCoreController('api::customer-user.customer-user'
             }
 
             // validate phone number only numeric
-            if (phone_number != undefined && !/^\d+$/.test(phone_number)) {
+            if (phoneNumber != undefined && !/^\d+$/.test(phoneNumber)) {
                 return ctx.badRequest('Phone number must be numeric');
             }
 
@@ -28,8 +28,8 @@ export default factories.createCoreController('api::customer-user.customer-user'
                 data: {
                     name,
                     email,
-                    phone_number,
-                    is_subscribe_email: false,
+                    phoneNumber,
+                    isSubscribeEmail: isSubscribeEmail || false,
                 },
             });
 
@@ -47,7 +47,7 @@ export default factories.createCoreController('api::customer-user.customer-user'
             const existingUser = await strapi.db.query('api::customer-user.customer-user').findOne({
                 where: { email: email },
             });
-            if (existingUser && existingUser.is_subscribe_email) {
+            if (existingUser && existingUser.isSubscribeEmail) {
                 LOG.info(ctx, 'User '+ email+ ' is already subscribed');
                 return ctx.body = existingUser;
             }
@@ -59,7 +59,7 @@ export default factories.createCoreController('api::customer-user.customer-user'
                 customerUser = await strapi.db.query('api::customer-user.customer-user').create({
                     data: {
                         email,
-                        is_subscribe_email: true,
+                        isSubscribeEmail: true,
                     },
                 });
             } else {
@@ -67,9 +67,10 @@ export default factories.createCoreController('api::customer-user.customer-user'
                 customerUser = await strapi.db.query('api::customer-user.customer-user').update({
                     where: { id: existingUser.id },
                     data: {
-                        is_subscribe_email: true,
+                        isSubscribeEmail: true,
                     },
                 });
+                LOG.info(ctx, 'updated user '+ JSON.stringify(customerUser));
             }
 
             ctx.body = customerUser;
