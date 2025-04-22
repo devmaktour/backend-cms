@@ -458,6 +458,38 @@ export interface ApiContactCsWhatsappTemplateContactCsWhatsappTemplate
   };
 }
 
+export interface ApiContactUsFormContactUsForm
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'contact_us_forms';
+  info: {
+    displayName: 'Contact Us Form';
+    pluralName: 'contact-us-forms';
+    singularName: 'contact-us-form';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-us-form.contact-us-form'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    phoneNumber: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    question: Schema.Attribute.Text & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCustomerServiceContactCustomerServiceContact
   extends Struct.CollectionTypeSchema {
   collectionName: 'customer_service_contacts';
@@ -1447,6 +1479,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::blog.blog': ApiBlogBlog;
       'api::contact-cs-whatsapp-template.contact-cs-whatsapp-template': ApiContactCsWhatsappTemplateContactCsWhatsappTemplate;
+      'api::contact-us-form.contact-us-form': ApiContactUsFormContactUsForm;
       'api::customer-service-contact.customer-service-contact': ApiCustomerServiceContactCustomerServiceContact;
       'api::customer-user.customer-user': ApiCustomerUserCustomerUser;
       'api::faq-category.faq-category': ApiFaqCategoryFaqCategory;
